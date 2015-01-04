@@ -2,11 +2,6 @@
 
 : override content -> {
 
-<ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="#">日</a></li>
-  <li role="presentation"><a href="#">週</a></li>
-  <li role="presentation"><a href="#">月</a></li>
-</ul>
 
 <script type="text/javascript">
 $(function() {
@@ -31,11 +26,13 @@ $(function() {
 
 <img src="<:$studybook.url:>"><br/>
 
-学習時間<br/>
+学習時間:<br/>
+<input type="number" name="studytime"><br/>
 
-学習量（ページ）</br>
+学習量（ページ）:</br>
+<input type="number" name="studystart">P~ <input type="number" name="studyend">P<br/>
 
-<textarea name="content" rows="4" cols="40"></textarea><br>
+<textarea name="content" rows="4" cols="40"></textarea><br><br/>
 
 <input type="submit" value="登録する"><br/>
 

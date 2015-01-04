@@ -1,0 +1,56 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+
+
+
+
+<script src="http://ccchart.com/js/ccchart.js" charset="utf-8"></script>
+<canvas id="hoge"></canvas>
+<script>
+
+
+  $.ajax({
+   type: 'GET',
+   url: '/study/graph/month',
+   datatype: 'json',
+   data: {
+   },
+   success: function(data){
+
+ var chartdata2 = {
+
+  "config": {
+    "title": "月別の勉強時間",
+    "subTitle":data.bookname,
+    "type": "line",
+    "lineWidth": 4,
+    "colorSet": 
+          ["red","#FF9114","#3CB000","#00A8A2","#0036C0","#C328FF","#FF34C0"],
+    "bgGradient": {
+            "direction":"vertical",
+            "from":"#687478",
+            "to":"#222222"
+          }
+  },
+
+  "data": [
+    ["月",1,2,3,4,5,6,7,8,9,10,11,12],
+    [data.bookname,data.jan,data.feb,data.mar,data.apr,data.may,data.jun,data.july,data.aug,data.sept,data.oct,data.nov,data.dec],
+  ]
+};
+
+     ccchart.init('hoge', chartdata2);
+   },
+   error: function(){
+     alert('登録済です');
+   }
+  });
+
+
+
+
+</script>
+     
+
+: }

@@ -13,6 +13,11 @@ sub insert_item{
  $self->insert('book',+{title => $title ,url => $url}); 
 }
 
+sub insert_log{
+ my($self,$param) = @_; 
+ $self->insert('log',$param);
+}
+
 sub get_search_book{
  my($self) = @_;
  my @items = $self->search('book',+{},+{});

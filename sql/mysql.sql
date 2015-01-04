@@ -19,3 +19,14 @@ CREATE TABLE IF NOT EXISTS booklist(
   url VARCHAR(255) UNIQUE,
   user_id INTEGER
 );
+
+CREATE TABLE IF NOT EXISTS log(
+  id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  studystart INTEGER,
+  studyend   INTEGER,
+  booktitle VARCHAR(255),
+  date VARCHAR(255),
+  studytime INTEGER,
+  content VARCHAR(255),
+  user_id INTEGER
+);

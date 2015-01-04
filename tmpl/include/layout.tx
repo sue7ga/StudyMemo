@@ -41,7 +41,7 @@
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="/book/list">学習本リスト</a></li>
                     <li><a href="/book/search">教材を探す</a></li>
-                    <li><a href="/study/log">勉強ログ</a></li>
+                    <li><a href="/study/graph">勉強ログ</a></li>
                 </ul>
             </div>
         </div><!-- /.container -->

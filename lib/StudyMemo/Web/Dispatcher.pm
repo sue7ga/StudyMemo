@@ -29,6 +29,7 @@ get '/user/login' => "User#login";
 post '/user/login' => "User#postuserlogin";
 
 get '/mypage' => "User#mypage";
+
 #Book
 get '/book/search' => "Book#search";
 
@@ -42,5 +43,10 @@ get '/js/book' => "Book#jsbook";
 get '/study/log/:id' => "Study#log";
 
 post '/study/record' => "Study#record";
+
+get '/study/graph' => "Study#graph";
+
+get '/study/graph/month' => "Study#graph_month";
+
 
 1;

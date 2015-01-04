@@ -25,4 +25,10 @@ table{
    columns qw(id title url user_id);
 };
 
+table{
+    name 'log';
+    pk 'id';
+   columns qw(id studystart booktitle date studytime content studyend user_id);
+};
+
 1;
