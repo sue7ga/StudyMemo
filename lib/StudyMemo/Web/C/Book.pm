@@ -12,12 +12,12 @@ my $rakuten = WebService::Rakuten::API->new(
 sub search{
  my($class,$c) = @_;
  my @books  = $c->db->get_search_book;
- $c->db->delete_all_data();
  return $c->render('book_search.tx',{books => \@books});
 }
 
 sub postsearch{
  my($class,$c) = @_;
+ $c->db->delete_all_data();
  my $param = $c->req->parameters;
  my $keyword = $param->{keyword};
  my $items = $rakuten->books({keyword => $keyword,format => 'json'});
@@ -38,6 +38,14 @@ sub list{
  my($class,$c) = @_;
  #学習本リストを取得
  return $c->render('book_list.tx');
+}
+
+sub jsbook{
+ my($class,$c) = @_;
+ my $param = $c->req->parameters; 
+ #my $book = $c->db->search_book($param->{id}); 
+ #$c->db->insert_booklist($book);
+ return $c->render_json({bookid => $param->{id}});
 }
 
 

@@ -30,7 +30,7 @@ sub search_book{
 
 sub insert_booklist{
  my($self,$book,$userid) = @_;
- $self->insert('booklist',{userid => $userid,url => $book->url ,title => $book->title});
+ $self->insert('booklist',{userid => $userid,url => $book->url ,$title => $book->title});
 }
 
 1;

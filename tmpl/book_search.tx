@@ -3,19 +3,40 @@
 : override content -> {
 
   :for $books -> $book{
-     <img src="<:$book.url:>"><br/>
-     <:$book.title:><br/>
-            
-   
+   <form id="update-data-form">
+     <img src="<:$book.url:>"><:$book.title:><br/>
+     <input type="button" value="本棚に登録" id="<: $book.url :>" /><br/>
+   </form>
   :} 
 
   <form method="post" action="/book/search"> 
     <input type="text" name="keyword" size="10" /><br/>  
-    <input type="submit" value="登録する"><br/>
+    <input type="submit" value="教材を探す"><br/>
   </form>
 
  <script>
-
+ $(function(){
+   var $updateInputs = $("#update-data-form").find("input");
+ 
+    $updateInputs.on("click",function(){
+        var $this = $(this);
+  $.ajax({
+   type: 'GET',
+   url: '/js/book',
+   datatype: 'json',
+   data: {
+     id:$this.attr("id")
+   },
+   success: function(data){
+     alert("登録されました");
+   },
+   error: function(){
+     alert('error');
+   }
+  });
+        $(this).val('登録済み');
+ });
+});
  </script>
 
 :}

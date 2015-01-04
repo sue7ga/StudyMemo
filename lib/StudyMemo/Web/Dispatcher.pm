@@ -33,6 +33,8 @@ post '/book/search' => "Book#postsearch";
 
 get '/book/list' => "Book#list";
 
+get '/js/book' => "Book#jsbook";
+
 #Study
 get '/study/log' => "Study#log";
 
