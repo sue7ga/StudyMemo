@@ -1,0 +1,20 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+
+<form method="post" action="/user/login">
+   
+ Email:
+ <input type="text" name="email" size="80"><br/>
+ 
+ PASSWORD:
+ <input type="password" name="password" size="80"></br>
+
+ <input type="submit" value="ログインする"><br/>
+
+</form>
+
+</form>
+
+:}
+

@@ -1,0 +1,39 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">日</a></li>
+  <li role="presentation"><a href="#">週</a></li>
+  <li role="presentation"><a href="#">月</a></li>
+</ul>
+
+<script type="text/javascript">
+$(function() {
+  // 2日本語を有効化
+  $.datepicker.setDefaults($.datepicker.regional['ja']);
+  // 3日付選択ボックスを生成
+  $('#date').datepicker({ dateFormat: 'yy/mm/dd' });
+});
+</script>
+
+勉強を記録する
+
+<form method="post" action="/study/record">
+
+日にち：<input type="text" id="date" size="10" /><br/>
+
+学習教材<br/>
+
+学習時間<br/>
+
+学習量（ページ）</br>
+
+<textarea name="content" rows="4" cols="40"></textarea><br>
+
+<input type="submit" value="登録する"><br/>
+
+</form>
+
+:}
+

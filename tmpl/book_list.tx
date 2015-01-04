@@ -1,0 +1,158 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+ 
+ <script>
+   $(function(){
+   $('.modal-open').click(function(){
+        $('body').append('<div class="modal-overlay"></div>');
+        $('modal-overlay').fadeIn('slow');
+
+        var modal = '#' + $(this).attr('data-target');   
+        modalResize();
+        $(modal).fadeIn('slow');
+
+        $('.modal-overlay, .modal-close').off().click(function(){
+          $(modal).fadeOut('slow');
+          $('modal-overlay').fadeOut('slow',function(){
+              $('.modal-overlay').remove();
+          });
+        });
+    
+        $(window).on('resize',function(){
+            modalResize();
+        });
+
+        function modalResize(){
+              var w = $(window).width();
+              var h = $(window).height();
+              
+              var x = (w - $(modal).outerWidth(true)) / 2;
+              var y = (h - $(modal).outerWidth(true)) + 100/ 2;     
+         
+              $(modal).css({'left': x + 'px','top': y + 'px'});
+        }
+   });
+});
+ </script>
+<style>
+	.modal-content {
+	    position:fixed;
+	    display:none;
+	    z-index:2;
+	    width:50%;
+	    margin:0;
+	    padding:10px 20px;
+	    border:2px solid #aaa;
+	    background:#fff;
+	}
+	 
+	.modal-content p {
+	    margin:0;
+	    padding:0;
+	}
+	 
+	.modal-overlay {
+	    z-index:1;
+	    display:none;
+	    position:fixed;
+	    top:0;
+	    left:0;
+	    width:100%;
+	    height:120%;
+	    background-color:rgba(0,0,0,0.75);
+	}	 
+	.modal-open {
+	    color:#00f;
+	    text-decoration:underline;
+	}
+	 
+	.modal-open:hover {
+	    cursor:pointer;
+	    color:#f00;
+	}
+	 
+	.modal-close {
+	    color:#00f;
+	    text-decoration:underline;
+	}
+	 
+	.modal-close:hover {
+	    cursor:pointer;
+	    color:#f00;
+	}
+	</style>
+
+	<a data-target="con1" class="modal-open">リンク1</a>
+	<a data-target="con2" class="modal-open">リンク2</a>
+	<a data-target="con3" class="modal-open">リンク3</a>
+	<a data-target="con4" class="modal-open">リンク4</a>
+	<a data-target="con5" class="modal-open">リンク5</a>
+	 
+	<div id="con1" class="modal-content">
+	    <p>リンク1の内容です。</p>
+	    <p><a class="modal-close">閉じる</a></p>
+	</div>
+	<div id="con2" class="modal-content">
+	    <p>リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。リンク2の内容です。</p>
+	    <p><a class="modal-close">閉じる</a></p>
+	</div>
+	<div id="con3" class="modal-content">
+	    <p>リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。リンク3の内容です。</p>
+	    <p><a class="modal-close">閉じる</a></p>
+	</div>
+	<div id="con4" class="modal-content">
+	    <p>リンク4の内容です。リンク4の内容です。</p>
+	    <p><a class="modal-close">閉じる</a></p>
+	</div>
+	<div id="con5" class="modal-content">
+	    <p>リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。リンク5の内容です。</p>
+	    <p><a class="modal-close">閉じる</a></p>
+	</div>
+	<p>
+	スクロールしてみてください。モーダルウィンドウは固定されているのがわかるかと思います。<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	↓<br>
+	・・・
+	終わり。
+	</p>
+
+
+:}
