@@ -25,12 +25,36 @@ sub delete_all_data{
 
 sub search_book{
  my($self,$bookurl) = @_;
- my $book = $self->search('book',+{url => $bookurl},+{});
+ my $book = $self->single('book',+{url => $bookurl});
+ return $book;
 }
 
 sub insert_booklist{
- my($self,$book,$userid) = @_;
- $self->insert('booklist',{userid => $userid,url => $book->url ,title => $book->title});
+ my($self,$url,$title,$userid) = @_;
+ $self->insert('booklist',{user_id => $userid,url => $url ,title => $title});
+}
+
+sub insert_user{
+ my($self,$param) = @_;
+ $self->insert('user',$param);
+}
+
+sub get_user{
+ my($self,$email) = @_;
+ my $user = $self->single('user',+{email => $email});
+ return $user;
+}
+
+sub get_booklists{
+ my($self,$userid) = @_;
+ my @books = $self->search('booklist',+{user_id => $userid},+{});
+ return @books;
+}
+
+sub get_booklist_by_userid_and_id{
+ my($self,$userid,$id) = @_;
+ my $book = $self->single('booklist',+{user_id => $userid,id => $id});
+ return $book;
 }
 
 1;

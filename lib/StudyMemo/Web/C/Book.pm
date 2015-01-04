@@ -36,17 +36,21 @@ sub postsearch{
 
 sub list{
  my($class,$c) = @_;
+ my $user_id = $c->session->get('userid');
  #学習本リストを取得
- return $c->render('book_list.tx');
+ my @booklists =  $c->db->get_booklists($user_id);
+ return $c->render('book_list.tx',{booklists => \@booklists});
 }
 
 sub jsbook{
  my($class,$c) = @_;
  my $param = $c->req->parameters; 
- #my $book = $c->db->search_book($param->{id}); 
- #$c->db->insert_booklist($book);
+ my $book = $c->db->search_book($param->{id});
+ my $url = $book->url;
+ my $title = $book->title; 
+ my $userid = $c->session->get('userid');
+ $c->db->insert_booklist($url,$title,$userid);
  return $c->render_json({bookid => $param->{id}});
 }
-
 
 1;

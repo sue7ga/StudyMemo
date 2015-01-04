@@ -26,6 +26,9 @@ post '/user/register' => "User#postregister";
 
 get '/user/login' => "User#login";
 
+post '/user/login' => "User#postuserlogin";
+
+get '/mypage' => "User#mypage";
 #Book
 get '/book/search' => "Book#search";
 
@@ -36,6 +39,8 @@ get '/book/list' => "Book#list";
 get '/js/book' => "Book#jsbook";
 
 #Study
-get '/study/log' => "Study#log";
+get '/study/log/:id' => "Study#log";
+
+post '/study/record' => "Study#record";
 
 1;

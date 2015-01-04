@@ -2,12 +2,12 @@
 
 : override content -> {
 
+    <form id="update-data-form">
   :for $books -> $book{
-   <form id="update-data-form">
      <img src="<:$book.url:>"><:$book.title:><br/>
      <input type="button" value="本棚に登録" id="<: $book.url :>" /><br/>
-   </form>
   :} 
+    </form>
 
   <form method="post" action="/book/search"> 
     <input type="text" name="keyword" size="10" /><br/>  
@@ -28,10 +28,10 @@
      id:$this.attr("id")
    },
    success: function(data){
-     alert("登録されました");
+     alert('登録されました');
    },
    error: function(){
-     alert('error');
+     alert('登録済です');
    }
   });
         $(this).val('登録済み');

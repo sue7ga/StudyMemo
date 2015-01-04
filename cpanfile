@@ -13,6 +13,7 @@ requires 'Text::Xslate', '2.0009';
 requires 'Time::Piece', '1.20';
 requires 'perl', '5.010_001';
 requires 'WebService::Rakuten::API','0.06';
+requires 'Email::Valid';
 
 on configure => sub {
     requires 'Module::Build', '0.38';
