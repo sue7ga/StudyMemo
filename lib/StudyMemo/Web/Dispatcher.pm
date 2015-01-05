@@ -48,5 +48,6 @@ get '/study/graph' => "Study#graph";
 
 get '/study/graph/month' => "Study#graph_month";
 
+get '/study/log/see/:id' => "Study#graph_see";
 
 1;

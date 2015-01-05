@@ -3,8 +3,6 @@
 : override content -> {
 
 
-
-
 <script src="http://ccchart.com/js/ccchart.js" charset="utf-8"></script>
 <canvas id="hoge"></canvas>
 <script>
@@ -46,9 +44,6 @@
      alert('登録済です');
    }
   });
-
-
-
 
 </script>
      

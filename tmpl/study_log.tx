@@ -20,6 +20,8 @@ $(function() {
 
 <input type="hidden" name="booktitle" value="<:$studybook.title:>"> 
 
+<input type="hidden" name="booklist_id" value="<:$studybook.id:>"> 
+
 学習教材:<br/>
 
 <:$studybook.title:><br/>

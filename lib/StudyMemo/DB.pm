@@ -3,6 +3,8 @@ use strict;
 use warnings;
 use utf8;
 use parent qw(Teng);
+use Data::Dumper;
+use Encode;
 
 __PACKAGE__->load_plugin('Count');
 __PACKAGE__->load_plugin('Replace');
@@ -61,5 +63,18 @@ sub get_booklist_by_userid_and_id{
  my $book = $self->single('booklist',+{user_id => $userid,id => $id});
  return $book;
 }
+
+sub search_booklist_by_logid{
+ my($self,$booklistid) = @_;
+ my $booktitle = $self->single('booklist',+{id => $booklistid},+{columns => [qw/title/]});
+ return $booktitle;
+}
+
+sub search_log{
+ my($self,$id,$userid) = @_;
+ my @logs = $self->search('log',+{user_id => $userid,booklist_id => $id},+{});
+ return @logs;
+}
+
 
 1;

@@ -28,5 +28,6 @@ CREATE TABLE IF NOT EXISTS log(
   date VARCHAR(255),
   studytime INTEGER,
   content VARCHAR(255),
-  user_id INTEGER
+  user_id INTEGER,
+  booklist_id INTEGER
 );

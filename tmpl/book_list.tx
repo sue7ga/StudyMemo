@@ -94,7 +94,7 @@
 <tr>
 <td bgcolor="#99CC00" align="center"><img src="<:$book.url:>"></td>
 <td bgcolor="#FFFFFF" valign="top" width="150"><:$book.title:></td>
-<td bgcolor="#FFFFFF" valign="top" width="200"><a href="/study/log/<:$book.id:>">勉強の記録をつける</a></td>
+<td bgcolor="#FFFFFF" valign="top" width="200"><a href="/study/log/<:$book.id:>">勉強の記録をつける</a><a href="/study/log/see/<:$book.id:>">勉強ログを見る</a></td>
 </tr>
 :}
 </table> 

@@ -28,7 +28,7 @@ table{
 table{
     name 'log';
     pk 'id';
-   columns qw(id studystart booktitle date studytime content studyend user_id);
+   columns qw(id studystart booktitle date studytime content studyend user_id booklist_id);
 };
 
 1;
